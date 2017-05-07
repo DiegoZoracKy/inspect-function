@@ -30,16 +30,22 @@ const result = inspectFunction(testFunction);
 // `result` will be:
 {
 	"name": "testFunction",
-	"parameters": [
+	"parametersDefinitions": [
 		"a='z'",
 		"b=[1,2,3]",
 		"c"
 	],
-	"parametersNames": [
-		"a",
-		"b",
-		"c"
-	],
+	"parameters": {
+		"names": [
+			"a",
+			"b",
+			"c"
+		],
+		"defaultValues": {
+			"a": "'z'",
+			"b": "[1,2,3]"
+		}
+	},
 	"signature": "testFunction(a = 'z', b = [1,2,3], c);"
 }
 ```

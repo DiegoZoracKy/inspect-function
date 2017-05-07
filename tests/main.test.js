@@ -13,13 +13,13 @@ describe('inspectFunction', function() {
 
 		describe(`${inspectResult.signature}`, function() {
 			it(`Must find the same length of parameters`, function() {
-				assert.equal(functionsSchemas[key].parameters.length, inspectResult.parameters.length);
+				assert.equal(functionsSchemas[key].parameters.length, inspectResult.parameters.names.length);
 			});
 
 			it(`Must find the same parameters names`, function() {
 				functionsSchemas[key].parameters.sort();
-				inspectResult.parametersNames.sort();
-				assert.equal(true, functionsSchemas[key].parameters.every((param, i) => param === inspectResult.parametersNames[i]));
+				inspectResult.parameters.names.sort();
+				assert.equal(true, functionsSchemas[key].parameters.every((param, i) => param === inspectResult.parameters.names[i]));
 			});
 		});
 
@@ -104,10 +104,10 @@ function getTestData(){
 
 		functionsWithHardDefaultParameters: {
 			parameters: ['option', 'bz', 'arr', 'arr2', 'dk', 'e', 'fn', 'fn2', '[destru,cturing]', 'c', '{dd,ee,ff}', 'g'],
-			functionsWithHardDefaultParameters: function (option = 2, bz= {c:1}, arr = [], arr2=[1,2,4], dk =function(z){}, e = { a: {
+			functionsWithHardDefaultParameters: function ( [destru, cturing]= [1], option = 2, bz= {c:1}, arr = [], arr2=[1,2,4], dk =function(z){}, e = { a: {
 				b: 3,
 				d: x => x}
-			}, fn = d => s, fn2 = d => {return s}, [destru, cturing]= [1], c, {dd, ee , ff} = {dd: {b: 1, c:2, arr:[1,6]}}, g) {  return  (x = 2, b= {c:1}, arr = [], d =function(z){}, e = { a: {
+			}, fn = d => s, fn2 = d => {return s},c, {dd, ee , ff} = {dd: {b: 1, c:2, arr:[1,6]}}, g) {  return  (x = 2, b= {c:1}, arr = [], d =function(z){}, e = { a: {
 				b: 3,
 				d: x => x}
 			}, fn = d => s, fn2 = d => {return z})}
@@ -115,10 +115,10 @@ function getTestData(){
 
 		functionsWithNameWithHardDefaultParameters: {
 			parameters: ['option', 'bz', 'arr', 'arr2', 'dk', 'e', 'fn', 'fn2', '[destru,cturing]', 'c', '{dd,ee,ff}', 'g'],
-			functionsWithNameWithHardDefaultParameters: function someFnName(option = 2, bz= {c:1}, arr = [...z, ...k], arr2=[1,2,4, ...k], dk =function(z){}, e = { a: {
+			functionsWithNameWithHardDefaultParameters: function someFnName([destru, cturing]= [1], option = 2, bz= {c:1}, arr = [...z, ...k], arr2=[1,2,4, ...k], dk =function(z){}, e = { a: {
 				b: 3,
 				d: x => x}
-			}, fn = d => s, fn2 = d => {return s}, [destru, cturing]= [1], c, {dd, ee , ff} = {dd: {b: 1, c:2, arr:[1,6]}}, g) {  return  (x = 2, b= {c:1}, arr = [], d =function(z){}, e = { a: {
+			}, fn = d => s, fn2 = d => {return s}, c, {dd, ee , ff} = {dd: {b: 1, c:2, arr:[1,6]}}, g) {  return  (x = 2, b= {c:1}, arr = [], d =function(z){}, e = { a: {
 				b: 3,
 				d: x => x}
 			}, fn = d => s, fn2 = d => {return z})}
@@ -126,10 +126,10 @@ function getTestData(){
 
 		arrowWithBracesWithHardDefaultParameters: {
 			parameters: ['option', 'bz', 'arr', 'arr2', 'dk', 'e', 'fn', 'fn2', '[destru,cturing]', 'c', '{dd,ee,ff}', 'g'],
-			arrowWithBracesWithHardDefaultParameters: (option = 2, bz= {c:1}, arr = [...z], arr2=[1,2,4,...k], dk =function(z){}, e = { a: {
+			arrowWithBracesWithHardDefaultParameters: ([destru, cturing]= [1], option = 2, bz= {c:1}, arr = [...z], arr2=[1,2,4,...k], dk =function(z){}, e = { a: {
 				b: 3,
 				d: x => x}
- 			}, fn = d => s, fn2 = d => {return s}, [destru, cturing]= [1], c, {dd, ee , ff} = {dd: {b: 1, c:2, arr:[1,6]}}, g) => {  return  (x = 2, b= {c:1}, arr = [], d =function(z){}, e = { a: {
+ 			}, fn = d => s, fn2 = d => {return s}, c, {dd, ee , ff} = {dd: {b: 1, c:2, arr:[1,6]}}, g) => {  return  (x = 2, b= {c:1}, arr = [], d =function(z){}, e = { a: {
 				b: 3,
 				d: x => x}
 			}, fn = d => s, fn2 = d => {return z})}
