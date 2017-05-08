@@ -31,7 +31,7 @@ const result = inspectFunction(testFunction);
     // it will be the value of "name" here
 	"name": "testFunction",
 	"parameters": {
-		"expects": [
+		"expected": [
 			"a",
 			"b",
 			"c",
