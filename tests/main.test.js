@@ -13,13 +13,13 @@ describe('inspectFunction', function() {
 
 		describe(`${inspectResult.signature}`, function() {
 			it(`Must find the same length of parameters`, function() {
-				assert.equal(functionsSchemas[key].parameters.length, inspectResult.parameters.names.length);
+				assert.equal(functionsSchemas[key].parameters.length, inspectResult.parameters.expected.length);
 			});
 
 			it(`Must find the same parameters names`, function() {
 				functionsSchemas[key].parameters.sort();
-				inspectResult.parameters.names.sort();
-				assert.equal(true, functionsSchemas[key].parameters.every((param, i) => param === inspectResult.parameters.names[i]));
+				inspectResult.parameters.expected.sort();
+				assert.equal(true, functionsSchemas[key].parameters.every((param, i) => param === inspectResult.parameters.expected[i]));
 			});
 		});
 
