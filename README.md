@@ -20,32 +20,46 @@ npm install inspect-function
 const inspectFunction = require('inspect-function');
 
 // Just a function to test
-const testFunction = (a = 'z', b = [1,2,3], c) => console.log(a,b,c);
+const testFunction = (a = 'z', b = [1,2,3], c, {d,e: {f}, g} = {}) => console.log('noop');
 
 // Inspects
 const result = inspectFunction(testFunction);
 
-// If the second param, `name`, is passed in.
-// This will be the value of result.name
 // `result` will be:
 {
+    // If the second param, `name`, is passed in,
+    // it will be the value of "name" here
 	"name": "testFunction",
-	"parametersDefinitions": [
-		"a='z'",
-		"b=[1,2,3]",
-		"c"
-	],
 	"parameters": {
-		"names": [
+		"expects": [
 			"a",
 			"b",
-			"c"
+			"c",
+			"{d,e:{f},g}"
 		],
 		"defaultValues": {
 			"a": "'z'",
-			"b": "[1,2,3]"
-		}
+			"b": "[1,2,3]",
+			"{d,e:{f},g}": "{}"
+		},
+
+		// Note that `"names"` contains also
+		// The parameters names after Destructuring
+		"names": [
+			"a",
+			"b",
+			"c",
+			"d",
+			"f",
+			"g"
+		],
+		"definitions": [
+			"a='z'",
+			"b=[1,2,3]",
+			"c",
+			"{d,e:{f},g}={}"
+		]
 	},
-	"signature": "testFunction(a = 'z', b = [1,2,3], c);"
+	"signature": "testFunction(a = 'z', b = [1,2,3], c, {d,e:{f},g} = {});"
 }
 ```
