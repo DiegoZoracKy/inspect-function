@@ -1,6 +1,6 @@
 {
   "name": "inspect-function",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Inspects a function and returns informations about it (e.g. name, parameters names, parameters and default values, signature)",
   "main": "lib/inspect-function.js",
   "author": {
