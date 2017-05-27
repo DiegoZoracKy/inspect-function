@@ -103,8 +103,8 @@ function getTestData(){
 		},
 
 		functionsWithHardDefaultParameters: {
-			parameters: ['option', 'bz', 'arr', 'arr2', 'dk', 'e', 'fn', 'fn2', '[destru,cturing]', 'c', '{dd,ee,ff}', '{ddd,eee:{zzz},fff}', 'g'],
-			functionsWithHardDefaultParameters: function ( [destru, cturing]= [1], {ddd,eee: {zzz},fff}, option = 2, bz= {c:1}, arr = [], arr2=[1,2,4], dk =function(z){}, e = { a: {
+			parameters: ['option', 'bz', 'arr', 'arr2', 'dk', 'e', 'fn', 'fn2', '[destru,[cturi],[ng]]', 'c', '{dd,ee,ff}', '{ddd,eee:{zzz},fff}', 'g'],
+			functionsWithHardDefaultParameters: function ( [destru, [cturi],[ng]]= [1], {ddd,eee: {zzz},fff}, option = 2, bz= {c:1}, arr = [], arr2=[1,2,4], dk =function(z){}, e = { a: {
 				b: 3,
 				d: x => x}
 			}, fn = d => s, fn2 = d => {return s},c, {dd, ee , ff} = {dd: {b: 1, c:2, arr:[1,6]}}, g) {  return  (x = 2, b= {c:1}, arr = [], d =function(z){}, e = { a: {
@@ -114,8 +114,8 @@ function getTestData(){
 		},
 
 		functionsWithNameWithHardDefaultParameters: {
-			parameters: ['option', 'bz', 'arr', 'arr2', 'dk', 'e', 'fn', 'fn2', '[destru,cturing]', 'c', '{dd,ee,ff}', '{ddd,eee:{zzz},fff}', 'g'],
-			functionsWithNameWithHardDefaultParameters: function someFnName([destru, cturing]= [1], {ddd,eee: {zzz},fff}, option = 2, bz= {c:1}, arr = [...z, ...k], arr2=[1,2,4, ...k], dk =function(z){}, e = { a: {
+			parameters: ['option', 'bz', 'arr', 'arr2', 'dk', 'e', 'fn', 'fn2', '[destru,[cturi],[ng]]', 'c', '{dd,ee,ff}', '{ddd,eee:{zzz},fff}', 'g'],
+			functionsWithNameWithHardDefaultParameters: function someFnName([destru, [cturi],[ng]]= [1], {ddd,eee: {zzz},fff}, option = 2, bz= {c:1}, arr = [...z, ...k], arr2=[1,2,4, ...k], dk =function(z){}, e = { a: {
 				b: 3,
 				d: x => x}
 			}, fn = d => s, fn2 = d => {return s}, c, {dd, ee , ff} = {dd: {b: 1, c:2, arr:[1,6]}}, g) {  return  (x = 2, b= {c:1}, arr = [], d =function(z){}, e = { a: {
@@ -125,8 +125,8 @@ function getTestData(){
 		},
 
 		arrowWithBracesWithHardDefaultParameters: {
-			parameters: ['option', 'bz', 'arr', 'arr2', 'dk', 'e', 'fn', 'fn2', '[destru,cturing]', 'c', '{dd,ee,ff}', '{ddd,eee:{zzz},fff}', 'g'],
-			arrowWithBracesWithHardDefaultParameters: ([destru, cturing]= [1], {ddd,eee: {zzz},fff}, option = 2, bz= {c:1}, arr = [...z], arr2=[1,2,4,...k], dk =function(z){}, e = { a: {
+			parameters: ['option', 'bz', 'arr', 'arr2', 'dk', 'e', 'fn', 'fn2', '[destru,[cturi],[ng]]', 'c', '{dd,ee,ff}', '{ddd,eee:{zzz},fff}', 'g'],
+			arrowWithBracesWithHardDefaultParameters: ([destru, [cturi],[ng]]= [1], {ddd,eee: {zzz},fff}, option = 2, bz= {c:1}, arr = [...z], arr2=[1,2,4,...k], dk =function(z){}, e = { a: {
 				b: 3,
 				d: x => x}
  			}, fn = d => s, fn2 = d => {return s}, c, {dd, ee , ff} = {dd: {b: 1, c:2, arr:[1,6]}}, g) => {  return  (x = 2, b= {c:1}, arr = [], d =function(z){}, e = { a: {
