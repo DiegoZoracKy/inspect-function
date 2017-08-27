@@ -1,6 +1,6 @@
 # inspect-function
 
-[![Build Status](https://api.travis-ci.org/DiegoZoracKy/inspect-function.svg)](https://travis-ci.org/DiegoZoracKy/inspect-function)
+[![Build Status](https://api.travis-ci.org/DiegoZoracKy/inspect-function.svg)](https://travis-ci.org/DiegoZoracKy/inspect-function) [![npm](https://img.shields.io/npm/v/inspect-function.svg)]() [![npm](https://img.shields.io/npm/l/inspect-function.svg)]()
 
 Inspects a function and returns informations about it (e.g. name, parameters names, parameters and default values, signature).
 Useful when creating automated tasks, e.g., docs generations.
