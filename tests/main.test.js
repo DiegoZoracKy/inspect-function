@@ -13,23 +13,21 @@ describe('inspectFunction', function() {
 
 		describe(`${inspectResult.signature}`, function() {
 			it(`Must find the same length of expected parameters`, function() {
-				assert.equal(functionsSchemas[key].parameters.expected.length, inspectResult.parameters.expected.length);
+				assert.equal(functionsSchemas[key].parameters.expected.length, inspectResult.parameters.length);
 			});
 
 			it(`Must find the same length of parameters names`, function() {
-				assert.equal(functionsSchemas[key].parameters.names.length, inspectResult.parameters.names.length);
+				assert.equal(functionsSchemas[key].parameters.names.length, inspectResult.parametersNames.length);
 			});
 
 			it(`Must find the same parameters names`, function() {
-				functionsSchemas[key].parameters.names.sort();
-				inspectResult.parameters.names.sort();
-				assert.equal(true, functionsSchemas[key].parameters.names.every((param, i) => param === inspectResult.parameters.names[i]));
+				// functionsSchemas[key].parameters.names.sort();
+				// inspectResult.parametersNames.sort();
+				assert.equal(true, functionsSchemas[key].parameters.names.every((param, i) => param === inspectResult.parametersNames[i]));
 			});
 
 			it(`Must find the same expected parameters`, function() {
-				functionsSchemas[key].parameters.expected.sort();
-				inspectResult.parameters.expected.sort();
-				assert.equal(true, functionsSchemas[key].parameters.expected.every((param, i) => param === inspectResult.parameters.expected[i]));
+				assert.equal(true, functionsSchemas[key].parameters.expected.every((param, i) => param === inspectResult.parameters[i].parameter));
 			});
 		});
 
@@ -139,7 +137,7 @@ function getTestData(){
 
 		arrowFunctionWithDestructuringInnerDefaultParameters: {
 			parameters: {
-				expected: [`{str='strDefault',bool=false,obj={ob:1,j:2},arrObj=[{o}]}`],
+				expected: [`{ str = 'strDefault', bool = false, obj = {ob:1,j:2}, arrObj = [{o}] }`],
 				names: ['str', 'bool', 'obj', 'arrObj']
 			},
 			arrowFunctionWithDestructuringInnerDefaultParameters: ({ str = 'strDefault', bool = false, obj = {ob:1,j:2}, arrObj = [{o}] } = {}) => {}
@@ -147,7 +145,7 @@ function getTestData(){
 
 		functionWithDestructuringInnerDefaultParameters: {
 			parameters: {
-				expected: [`{str='strDefault',bool=false,obj={ob:1,j:2},arrObj=[{o}]}`],
+				expected: [`{ str = 'strDefault', bool = false, obj = {ob:1,j:2}, arrObj = [{o}] }`],
 				names: ['str', 'bool', 'obj', 'arrObj']
 			},
 			functionWithDestructuringInnerDefaultParameters: function ({ str = 'strDefault', bool = false, obj = {ob:1,j:2}, arrObj = [{o}] } = {}) {}
@@ -155,7 +153,7 @@ function getTestData(){
 
 		functionWithNameWithDestructuringInnerDefaultParameters: {
 			parameters: {
-				expected: [`{str='strDefault',bool=false,obj={ob:1,j:2},arrObj=[{o}]}`],
+				expected: [`{ str = 'strDefault', bool = false, obj = {ob:1,j:2}, arrObj = [{o}] }`],
 				names: ['str', 'bool', 'obj', 'arrObj']
 			},
 			functionWithNameWithDestructuringInnerDefaultParameters: function someFnName({ str = 'strDefault', bool = false, obj = {ob:1,j:2}, arrObj = [{o}] } = {}) {}
@@ -163,7 +161,7 @@ function getTestData(){
 
 		functionsWithHardDefaultParameters: {
 			parameters: {
-				expected: ['option', 'bz', 'arr', 'arr2', 'dk', 'e', 'fn', 'fn2', '[destru,[cturi],[ng]]', 'c', '{dd,ee,ff}', '{ddd,eee:{zzz},fff}', 'g'],
+				expected: ['[destru, [cturi],[ng]]','{ddd,eee: {zzz},fff}','option','bz','arr','arr2','dk','e','fn','fn2','c','{dd, ee , ff}','g'],
 				names: ['destru',  'cturi',  'ng',  'ddd',  'zzz',  'fff',  'option',  'bz',  'arr',  'arr2',  'dk',  'e',  'fn',  'fn2',  'c',  'dd',  'ee',  'ff',  'g']
 			},
 			functionsWithHardDefaultParameters: function ( [destru, [cturi],[ng]]= [1], {ddd,eee: {zzz},fff}, option = 2, bz= {c:1}, arr = [], arr2=[1,2,4], dk =function(z){}, e = { a: {
@@ -177,7 +175,7 @@ function getTestData(){
 
 		functionsWithNameWithHardDefaultParameters: {
 			parameters: {
-				expected: ['option', 'bz', 'arr', 'arr2', 'dk', 'e', 'fn', 'fn2', '[destru,[cturi],[ng]]', 'c', '{dd,ee,ff}', '{ddd,eee:{zzz},fff}', 'g'],
+				expected: ['[destru, [cturi],[ng]]','{ddd,eee: {zzz},fff}','option','bz','arr','arr2','dk','e','fn','fn2','c','{dd, ee , ff}','g'],
 				names: ['destru',  'cturi',  'ng',  'ddd',  'zzz',  'fff',  'option',  'bz',  'arr',  'arr2',  'dk',  'e',  'fn',  'fn2',  'c',  'dd',  'ee',  'ff',  'g']
 			},
 			functionsWithNameWithHardDefaultParameters: function someFnName([destru, [cturi],[ng]]= [1], {ddd,eee: {zzz},fff}, option = 2, bz= {c:1}, arr = [...z, ...k], arr2=[1,2,4, ...k], dk =function(z){}, e = { a: {
@@ -191,7 +189,7 @@ function getTestData(){
 
 		arrowWithBracesWithHardDefaultParameters: {
 			parameters: {
-				expected: ['option', 'bz', 'arr', 'arr2', 'dk', 'e', 'fn', 'fn2', '[destru,[cturi],[ng]]', 'c', '{dd,ee,ff}', '{ddd,eee:{zzz},fff}', 'g'],
+				expected: ['[destru, [cturi],[ng]]','{ddd,eee: {zzz},fff}','option','bz','arr','arr2','dk','e','fn','fn2','c','{dd, ee , ff}','g'],
 				names: ['destru', 'cturi', 'ng', 'ddd', 'zzz', 'fff', 'option', 'bz', 'arr', 'arr2', 'dk', 'e', 'fn', 'fn2', 'c', 'dd', 'ee', 'ff', 'g']
 			},
 			arrowWithBracesWithHardDefaultParameters: ([destru, [cturi],[ng]]= [1], {ddd,eee: {zzz},fff}, option = 2, bz= {c:1}, arr = [...z], arr2=[1,2,4,...k], dk =function(z){}, e = { a: {

@@ -19,47 +19,61 @@ npm install inspect-function
 // The module
 const inspectFunction = require('inspect-function');
 
-// Just a function to test
+// A function
 const testFunction = (a = 'z', b = [1,2,3], c, {d,e: {f}, g} = {}) => console.log('noop');
 
 // Inspects
 const result = inspectFunction(testFunction);
 
-// `result` will be:
+////////////////////////
+// `result` will be:  //
+////////////////////////
 {
-    // If the second param, `name`, is passed in,
-    // it will be the value of "name" here
-	"name": "testFunction",
-	"parameters": {
-		"expected": [
-			"a",
-			"b",
-			"c",
-			"{d,e:{f},g}"
-		],
-		"defaultValues": {
-			"a": "'z'",
-			"b": "[1,2,3]",
-			"{d,e:{f},g}": "{}"
-		},
-
-		// Note that `"names"` contains also
-		// The parameters names after Destructuring
-		"names": [
-			"a",
-			"b",
-			"c",
-			"d",
-			"f",
-			"g"
-		],
-		"definitions": [
-			"a='z'",
-			"b=[1,2,3]",
-			"c",
-			"{d,e:{f},g}={}"
-		]
-	},
-	"signature": "testFunction(a = 'z', b = [1,2,3], c, {d,e:{f},g} = {});"
+    "name": "testFunction",
+    "signature": "testFunction(a = 'z', b = [1,2,3], c, {d,e: {f}, g} = {});",
+    "parameters": [
+        {
+            "parameter": "a",
+            "defaultValue": "z",
+            "declaration": "a = 'z'"
+        },
+        {
+            "parameter": "b",
+            "defaultValue": "[1,2,3]",
+            "declaration": "b = [1,2,3]"
+        },
+        {
+            "parameter": "c",
+            "declaration": "c"
+        },
+        {
+            "parameter": "{d,e: {f}, g}",
+            "defaultValue": "{}",
+            "expectsDestructuring": true,
+            "declaration": "{d,e: {f}, g} = {}",
+            "destructuredParameters": [
+                {
+                    "parameter": "d",
+                    "declaration": "d"
+                },
+                {
+                    "parameter": "f",
+                    "declaration": "f"
+                },
+                {
+                    "parameter": "g",
+                    "declaration": "g"
+                }
+            ]
+        }
+    ],
+    "parametersNames": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f",
+        "g"
+    ]
 }
 ```

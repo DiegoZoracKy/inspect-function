@@ -1,6 +1,6 @@
 {
   "name": "inspect-function",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Inspects a function and returns informations about it (e.g. name, parameters names, parameters and default values, signature)",
   "main": "lib/inspect-function.js",
   "author": {
@@ -28,7 +28,9 @@
     "mocha": "^3.3.0"
   },
   "dependencies": {
+    "inspect-parameters-declaration": "0.0.8",
     "split-skip": "0.0.1",
+    "stringify-parameters": "0.0.4",
     "unpack-string": "0.0.2"
   }
 }
