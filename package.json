@@ -1,8 +1,9 @@
 {
   "name": "inspect-function",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Inspects a function and returns informations about it (e.g. name, parameters names, parameters and default values, signature)",
   "main": "lib/inspect-function.js",
+  "bin": "bin/magicli.js",
   "author": {
     "name": "Diego ZoracKy",
     "email": "diego.zoracky@gmail.com",
@@ -29,6 +30,7 @@
   },
   "dependencies": {
     "inspect-parameters-declaration": "0.0.8",
+    "magicli": "0.0.8",
     "split-skip": "0.0.1",
     "stringify-parameters": "0.0.4",
     "unpack-string": "0.0.2"
