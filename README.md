@@ -10,6 +10,13 @@ Useful when creating automated tasks, e.g., docs generations.
 ```bash
 npm install inspect-function
 ```
+**CLI**
+```bash
+npm install inspect-function -g
+```
+```bash
+npx inspect-function --help
+```
 
 ## Usage
 
