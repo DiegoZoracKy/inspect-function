@@ -21,8 +21,6 @@ describe('inspectFunction', function() {
 			});
 
 			it(`Must find the same parameters names`, function() {
-				// functionsSchemas[key].parameters.names.sort();
-				// inspectResult.parametersNames.sort();
 				assert.equal(true, functionsSchemas[key].parameters.names.every((param, i) => param === inspectResult.parametersNames[i]));
 			});
 
@@ -52,6 +50,14 @@ function getTestData(){
 			},
 			arrow: (paramA, paramB, c) => console.log(a, b, c)
 		},
+
+		asyncArrow: {
+			parameters: {
+				expected: ['paramA', 'paramB', 'c'],
+				names: ['paramA', 'paramB', 'c']
+			},
+			asyncArrow: async (paramA, paramB, c) => console.log(a, b, c)
+		},		
 
 		arrowWithBraces: {
 			parameters: {
@@ -89,6 +95,26 @@ function getTestData(){
 				names: ['a']
 			},
 			functionWithName: function withName(a) {
+				console.log(a)
+			}
+		},
+
+		asyncFunction: {
+			parameters: {
+				expected: ['a', 'b', 'c'],
+				names: ['a', 'b', 'c']
+			},
+			asyncFunction: async function(a, b, c){
+				console.log(a, b, c)
+			}
+		},
+
+		asyncFunctionWithName: {
+			parameters: {
+				expected: ['a'],
+				names: ['a']
+			},
+			asyncFunctionWithName: async function withName(a) {
 				console.log(a)
 			}
 		},
