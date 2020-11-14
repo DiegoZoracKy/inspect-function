@@ -29,7 +29,7 @@
     "mocha": "^5.2.0"
   },
   "dependencies": {
-    "inspect-parameters-declaration": "0.0.8",
+    "inspect-parameters-declaration": "0.1.0",
     "magicli": "0.0.8",
     "split-skip": "0.0.1",
     "stringify-parameters": "0.0.7",
